@@ -3,6 +3,7 @@ import express from 'express'
 import authRoutes from "./routes/auth.routes.js"
 import { connectDB } from './db/connectDB.js'
 dotenv.config();
+const jwtSecret = process.env.JWT_SECRET;
 const app=express();
 const PORT=process.env.PORT||5000;
 
