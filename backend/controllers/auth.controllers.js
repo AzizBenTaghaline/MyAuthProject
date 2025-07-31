@@ -37,9 +37,6 @@ export const signup= async(req,res)=>{
     }catch (error){
         res.status(400).json({success:false , message:error.message});
     }
-
-
-
 }
 
 export const verifyEmail = async (req, res) => {
@@ -67,4 +64,5 @@ export const verifyEmail = async (req, res) => {
         password: undefined,
     },});
 }catch (error) {
-    res.status(500).json({success: false, message:"Server error"});}}
+    console.error("Verification error:", error);
+    res.status(500).json({success: false, message:error.message ||"Server error"});}}

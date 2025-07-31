@@ -20,17 +20,16 @@ export const sendVerificationEmail = async (email, verificationToken) => {
 export const sendWelcomeEmail = async (email, name) => {
     const recipients = [{ email }];
     try {
-        await mailtrapClient.send({
+        const response = await mailtrapClient.send({
             from: sender,
             to: recipients,
-            subject: "Welcome to Our Application",
             template_uuid: "d07b436b-c88e-4dd1-84dc-db7f6248dfff",
             template_variables: {
                 company_info_name: "My Kanban Dashboard",
                 name: name
             }
         });
-        console.log("Welcome email sent successfully");
+        console.log("Welcome email sent successfully", response);
     } catch (error) {
         console.error("Error sending welcome email:", error);
         throw new Error("Failed to send welcome email: " + error.message);
