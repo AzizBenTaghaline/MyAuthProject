@@ -1,17 +1,14 @@
 import express from 'express'
-import {signup , verifyEmail} from '../controllers/auth.controllers.js'
+import {signup , verifyEmail , logout , login} from '../controllers/auth.controllers.js'
 import { verify } from 'crypto';
 const router=express.Router();
 
 router.post('/signup',signup);
 
-router.post('/login',(req,res)=>{
-    res.send("login Route")
-});
+router.post('/login',login);
 
-router.post('/logout',(req,res)=>{
-    res.send("logout Route")
-});
+router.post('/logout',logout);
+
 router.post('/verify-email',verifyEmail);
 
 export default router;
