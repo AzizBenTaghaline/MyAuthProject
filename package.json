@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "main": "backend/index.js",
   "scripts": {
-"dev": "cross-env NODE_ENV=development nodemon backend/index.js",
-"start": "cross-env NODE_ENV=production node backend/index.js",
-"build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
-},
+    "dev": "cross-env NODE_ENV=development nodemon backend/index.js",
+    "start": "cross-env NODE_ENV=production node backend/index.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.11",
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
     "cross-env": "^10.0.0",
@@ -21,8 +22,9 @@
     "jsonwebtoken": "^9.0.2",
     "mailtrap": "^4.2.0",
     "mongoose": "^8.16.5",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "react-router-dom": "^7.7.1",
+    "tailwindcss": "^4.1.11"
   },
-  "devDependencies": {},
   "description": ""
 }
