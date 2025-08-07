@@ -14,7 +14,6 @@ import { Toaster } from "react-hot-toast";
 import { useAuthStore } from "./store/authStore";
 import { useEffect } from "react";
 
-// protect routes that require authentication
 const ProtectedRoute = ({ children }) => {
 	const { isAuthenticated, user } = useAuthStore();
 
@@ -29,7 +28,6 @@ const ProtectedRoute = ({ children }) => {
 	return children;
 };
 
-// redirect authenticated users to the home page
 const RedirectAuthenticatedUser = ({ children }) => {
 	const { isAuthenticated, user } = useAuthStore();
 
@@ -42,13 +40,13 @@ const RedirectAuthenticatedUser = ({ children }) => {
 
 function App() {
 	const { isCheckingAuth, checkAuth } = useAuthStore();
-
+                            
 	useEffect(() => {
 		checkAuth();
 	}, [checkAuth]);
 
 	if (isCheckingAuth) return <LoadingSpinner />;
-
+ 
 	return (
 		<div
 			className='min-h-screen bg-gradient-to-br

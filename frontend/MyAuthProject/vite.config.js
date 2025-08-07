@@ -7,4 +7,12 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss()],
+    resolve: {
+    alias: {
+      crypto: 'crypto-browserify'
+    }
+  },
+  define: {
+    'process.env': {}
+  }
 })
