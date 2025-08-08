@@ -23,7 +23,7 @@ export const sendWelcomeEmail = async (email, name) => {
         const response = await mailtrapClient.send({
             from: sender,
             to: recipients,
-            template_uuid: "d07b436b-c88e-4dd1-84dc-db7f6248dfff",
+            template_uuid: "214600cf-d24b-4ac5-b0ad-4ad31e087ea9",
             template_variables: {
                 company_info_name: "My Kanban Dashboard",
                 name: name
