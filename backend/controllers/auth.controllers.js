@@ -125,7 +125,7 @@ export const forgotPassword = async (req, res) => {
     };
 };
 
-export const reset = async (req, res) => {
+export const resetPassword = async (req, res) => {
     try {
         const token = req.params.token;
         if (!token) {
