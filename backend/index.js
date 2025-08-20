@@ -24,7 +24,6 @@ app.get("/api/health", (_req, res) =>
   res.status(200).json({ status: "ok", uptime: process.uptime() })
 );
 
-// Serve frontend in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "frontend/dist")));
   // optional catch-all if you added one earlier

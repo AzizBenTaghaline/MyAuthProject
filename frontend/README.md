@@ -1,12 +1,58 @@
-# React + Vite
+# MyAuthProject
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Full‑stack authentication app with email verification, password reset, JWT auth (HTTP‑only cookies), and a React frontend.
 
-Currently, two official plugins are available:
+- Backend: Node.js, Express, MongoDB (Mongoose), JWT, Mailtrap
+- Frontend: React (Vite), Axios, Zustand, React Router
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Sign up with email verification (6‑digit code)
+- Login with JWT (stored in HTTP‑only cookie)
+- Protected routes (backend + frontend guards)
+- Forgot password via email link with token
+- Reset password with token
+- Logout
+- Basic user dashboard
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- Backend: Node.js, Express, Mongoose, bcryptjs, jsonwebtoken, cookie-parser, cors, dotenv
+- Email: Mailtrap (sandbox)
+- Frontend: React, Vite, react-router-dom, Zustand, Axios, Tailwind (optional)
+
+## Project Structure
+
+```
+MyAuthProject/
+  backend/
+    index.js
+    controllers/
+      auth.controllers.js
+    db/
+      connectDB.js
+    mailtrap/
+      emails.js
+      emailTemplates.js
+      mailtrap.js
+    middleware/
+      verifyToken.js
+    models/
+      user.model.js
+    routes/
+      auth.routes.js
+    utils/
+      generateTokenAndSetCookie.js
+  frontend/
+    index.html
+    vite.config.js
+    src/
+      App.jsx
+      main.jsx
+      store/authStore.js
+      pages/...
+      components/...
+      utils/date.js
+  package.json
+  .env (not committed)
+```
