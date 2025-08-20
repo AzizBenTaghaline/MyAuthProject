@@ -16,18 +16,25 @@ app.use(cors({ origin: "http://localhost:5173", credentials:true}));
 app.use(express.json()) 
 app.use(cookieParser())
 
-app.use("/api/auth",authRoutes)
+app.use("/api/auth", authRoutes);
 
+// Health checks
+app.get("/health", (_req, res) => res.status(200).send("ok"));
+app.get("/api/health", (_req, res) =>
+  res.status(200).json({ status: "ok", uptime: process.uptime() })
+);
+
+// Serve frontend in production
 if (process.env.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname, "frontend/dist")));
-
-	app.get('*', (req, res) => {
-		res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'));
-	});
+  app.use(express.static(path.join(__dirname, "frontend/dist")));
+  // optional catch-all if you added one earlier
+  // app.get(/^\/(?!api\/).*/, (_req, res) =>
+  //   res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"))
+  // );
 }
 
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
     connectDB();
-    console.log('Its running on port',PORT);
-}) 
+    console.log(`Server running on port ${PORT}`);
+})
 //6bJDBSxZgKhGROvu / azizbtg
